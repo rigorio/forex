@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import sarmiento.rigo.martrust.util.SeedUtil;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -26,6 +27,12 @@ public class FXController {
     @PostMapping("/currencies")
     public ResponseEntity<List<Currency>> saveAll(@RequestBody List<Currency> currencies) {
         return new ResponseEntity<>(adaptToCurrency(currencyService.addAll(currencies.stream().map(CurrencyEntity::new).collect(Collectors.toList()))), HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/value/{currency}")
+    public ResponseEntity<Currency> getValueOfCurrency(@PathVariable String currency) {
+        Optional<CurrencyEntity> currencyEntity = currencyService.findByCurrency(currency);
+        return new ResponseEntity<>(new Currency(currencyEntity.orElseThrow(() -> new CurrencyNotFoundException("Currency not found"))), HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/seed")

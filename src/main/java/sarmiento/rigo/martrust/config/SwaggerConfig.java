@@ -1,4 +1,4 @@
-package sarmiento.rigo.martrust.security;
+package sarmiento.rigo.martrust.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
