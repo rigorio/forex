@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CurrencyRepositoryImpl implements CurrencyRepository {
@@ -19,6 +20,13 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     public List<CurrencyEntity> saveAll(List<CurrencyEntity> currencyList) {
         currencies.addAll(currencyList);
         return currencyList;
+    }
+
+    @Override
+    public Optional<CurrencyEntity> findByLabel(String label) {
+        return currencies.stream()
+                .filter(currency -> currency.getLabel().equals(label))
+                .findFirst();
     }
 
 }
