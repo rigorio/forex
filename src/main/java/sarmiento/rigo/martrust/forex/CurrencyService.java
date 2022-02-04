@@ -8,5 +8,7 @@ public interface CurrencyService {
 
     List<CurrencyEntity> addAll(List<CurrencyEntity> currencyEntityList);
 
+    CurrencyEntity add(CurrencyEntity currency);
+
     Optional<CurrencyEntity> findByCurrency(String currency);
 }

@@ -23,6 +23,12 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     }
 
     @Override
+    public CurrencyEntity save(CurrencyEntity currency) {
+        currencies.add(currency);
+        return currency;
+    }
+
+    @Override
     public Optional<CurrencyEntity> findByLabel(String label) {
         return currencies.stream()
                 .filter(currency -> currency.getLabel().equals(label))

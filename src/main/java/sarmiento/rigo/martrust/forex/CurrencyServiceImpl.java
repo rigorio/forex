@@ -24,6 +24,11 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
+    public CurrencyEntity add(CurrencyEntity currency) {
+        return currencyRepository.save(currency);
+    }
+
+    @Override
     public Optional<CurrencyEntity> findByCurrency(String currency) {
         return currencyRepository.findByLabel(currency);
     }

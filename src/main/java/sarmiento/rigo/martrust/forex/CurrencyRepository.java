@@ -13,4 +13,6 @@ public interface CurrencyRepository {
     List<CurrencyEntity> saveAll(List<CurrencyEntity> currencyList);
 
     Optional<CurrencyEntity> findByLabel(String label);
+
+    CurrencyEntity save(CurrencyEntity currency);
 }
