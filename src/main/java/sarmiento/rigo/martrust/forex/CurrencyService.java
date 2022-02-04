@@ -11,4 +11,6 @@ public interface CurrencyService {
     CurrencyEntity add(CurrencyEntity currency);
 
     Optional<CurrencyEntity> findByCurrency(String currency);
+
+    void deleteAll();
 }

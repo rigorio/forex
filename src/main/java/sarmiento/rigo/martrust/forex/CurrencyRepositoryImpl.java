@@ -35,4 +35,9 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
                 .findFirst();
     }
 
+    @Override
+    public void deleteAll() {
+        currencies.clear();
+    }
+
 }

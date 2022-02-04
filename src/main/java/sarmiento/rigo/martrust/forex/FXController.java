@@ -55,6 +55,12 @@ public class FXController {
         return new ResponseEntity<>(adaptToCurrency(currencyService.addAll(SeedUtil.generateCurrencies())), HttpStatus.ACCEPTED);
     }
 
+    @DeleteMapping
+    public ResponseEntity<Void> deleteAll() {
+        currencyService.deleteAll();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     private List<Currency> adaptToCurrency(List<CurrencyEntity> currencies) {
         return currencies.stream().map(Currency::new).collect(Collectors.toList());
     }

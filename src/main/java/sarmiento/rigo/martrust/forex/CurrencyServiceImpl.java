@@ -33,4 +33,9 @@ public class CurrencyServiceImpl implements CurrencyService {
         return currencyRepository.findByLabel(currency);
     }
 
+    @Override
+    public void deleteAll(){
+        currencyRepository.deleteAll();
+    }
+
 }

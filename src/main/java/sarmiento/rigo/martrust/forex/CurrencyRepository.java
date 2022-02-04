@@ -15,4 +15,6 @@ public interface CurrencyRepository {
     Optional<CurrencyEntity> findByLabel(String label);
 
     CurrencyEntity save(CurrencyEntity currency);
+
+    void deleteAll();
 }
