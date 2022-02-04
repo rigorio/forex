@@ -1,8 +1,10 @@
 package sarmiento.rigo.martrust.forex;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Currency {
 
     private String label;
